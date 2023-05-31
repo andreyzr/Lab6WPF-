@@ -1,0 +1,21 @@
+﻿<Window x:Class="WpfApp2_Маршрутизация_событий_.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2_Маршрутизация_событий_"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <local:MyButton x:Name="ExtraButton" MyButtonClick="ExtraButton_MyButtonClick" >
+            <StackPanel>
+                <local:MyButton x:Name="InnerButton"
+                                Padding="30"
+                                MyButtonClick="ExtraButton_MyButtonClick" Content="Вложенная кнопка">
+                    
+                </local:MyButton>
+            </StackPanel>
+            
+        </local:MyButton>
+    </Grid>
+</Window>
