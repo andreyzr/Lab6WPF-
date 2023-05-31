@@ -26,7 +26,6 @@ namespace HW
         {
             this.WindDir = windDir;
             this.Precipitation = precipitation;
-            this.Temp = tempProperty;
         }
         public int Temp
         {
