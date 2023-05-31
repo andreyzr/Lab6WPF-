@@ -7,25 +7,36 @@ using System.Windows;
 
 namespace HW
 {
+     enum Precipitation
+    {
+        sunny,
+        cliudy,
+        rain,
+        snow
+    };
     internal class WeatherControl : DependencyObject
     {
+        private Precipitation precipitation;
         public static readonly DependencyProperty TempProperty;
-        private string windDir;
-        private int precipitation;
+        private string wind_dir;
+        private int wind_speed;
+
         public string WindDir
         {
-            get => windDir;
-            set => windDir = value;
-        }
-        public int Precipitation
+            get => wind_dir;
+            set => wind_dir = value;
+        }        
+        public int WindSpeed
         {
-            get => precipitation;
-            set => precipitation = value;
+            get => wind_speed;
+            set => wind_speed = value;
         }
-        public WeatherControl(string windDir, int precipitation, int tempProperty)
+
+        public WeatherControl(string wind_dir, int wind_speed, Precipitation precipitation)
         {
-            this.WindDir = windDir;
-            this.Precipitation = precipitation;
+            this.WindDir = wind_dir;
+            this.WindSpeed = wind_speed;
+            this.precipitation = precipitation;
         }
         public int Temp
         {
