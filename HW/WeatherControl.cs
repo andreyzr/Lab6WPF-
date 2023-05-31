@@ -15,7 +15,7 @@ namespace HW
         public string WindDir
         {
             get => windDir;
-            set => windDir=value;
+            set => windDir = value;
         }
         public int Precipitation
         {
@@ -26,7 +26,7 @@ namespace HW
         {
             this.WindDir = windDir;
             this.Precipitation = precipitation;
-            this.TempProperty = tempProperty;
+            this.Temp = tempProperty;
         }
         public int Temp
         {
@@ -36,7 +36,7 @@ namespace HW
         static WeatherControl()
         {
             TempProperty = DependencyProperty.Register(
-                nameof(Age),
+                nameof(Temp),
                 typeof(int),
                 typeof(WeatherControl),
                 new FrameworkPropertyMetadata(0, FrameworkPropertyMetadataOptions.AffectsArrange |
@@ -44,6 +44,22 @@ namespace HW
                 null,
                 new CoerceValueCallback(CoerceTemp)),
                 new ValidateValueCallback(ValidateTemp));
+        }
+        private static object CoerceTemp(DependencyObject d, object baseValue)
+        {
+            int v = (int)baseValue;
+            if (v >= -50)
+                return v;
+            else
+                return 0;
+        }
+        private static bool ValidateTemp(object value)
+        {
+            int v = (int)value;
+            if (v >= -50 && v < 50)
+                return true;
+            else
+                return false;
         }
 
     }
